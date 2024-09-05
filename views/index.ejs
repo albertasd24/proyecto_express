@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión Usuarios</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.datatables.net/v/dt/dt-2.1.5/datatables.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h2>Proyecto Academico</h2>
+    </header>
+    <main>
+      <h4>Gestión Usuarios</h4>
+      <a class="btn-button" href="form/usuarios">Registrar Usuario</a>
+      <div class="container-table">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Foto</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach(function(user){ %>
+            <tr>
+              <td><%= user._id %></td>
+              <td>
+                <img
+                  class="photo"
+                  width="50"
+                  src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+                  alt=""
+                />
+              </td>
+              <td><%= user.name %></td>
+              <td><%= user.lastname %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
+              <td>
+                <a href="/form/usuarios/<%= user._id %>">Edit</a>
+                <button class="button-danger" onclick="deleteMessageUser('<%= user._id %>')">Delete</button>
+              </td>
+            </tr>
+            <% })%>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

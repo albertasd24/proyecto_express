@@ -1,0 +1,14 @@
+version: '3.9'  # Versión de Docker Compose
+
+services:
+  mongo:
+    image: mongo:latest  # Usa la última imagen oficial de MongoDB
+    container_name: containerMongoDB  # Nombre del contenedor
+    ports:
+      - "27018:27017"  # Mapea el puerto 27017 del contenedor al puerto 27017 de tu máquina local
+    volumes:
+      - mongo_data:/data/db  # Volumen para persistir los datos de MongoDB
+
+volumes:
+  mongo_data:
+    driver: local  # Usa el driver local para almacenar los datos de MongoDB
