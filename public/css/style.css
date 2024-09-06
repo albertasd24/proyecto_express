@@ -18,6 +18,35 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+/* Estilo para la barra de desplazamiento (Webkit - Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px;
+    /* Ancho de la barra de desplazamiento vertical */
+    height: 12px;
+    /* Alto de la barra de desplazamiento horizontal */
+}
+
+/* Estilo para la pista de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #dddddd;
+    /* Color del fondo de la pista */
+    border-radius: 10px;
+    /* Redondeado de la pista */
+}
+
+/* Estilo para el pulgar (thumb) de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+    background-color: #073aa8;
+    border-radius: 10px;
+    transition: background-color 2s ease-in-out;
+}
+
+/* Estilo para el pulgar de desplazamiento en estado de hover (cuando el mouse pasa sobre él) */
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(2, 18, 88);
+    /* Color del pulgar cuando el mouse está sobre él */
+}
+
 input,
 textarea,
 select {
@@ -81,12 +110,19 @@ table {
 
 .container-table {
     width: 100%;
+    overflow-x: auto;
 }
 
-thead {
+.container-table thead th {
     background-color: var(--color-primary);
     color: var(--color-light);
 }
+
+.container-table tr:nth-child(odd) {
+    background-color: #dcebff; /* Color de fondo blanco */
+}
+
+
 
 .dt-paging-button {
     border: 1px solid var(--color-primary) !important;
@@ -125,6 +161,8 @@ main h4 {
     padding: 1rem 2rem;
     width: 50%;
 }
+
+
 
 .form select {
     font-size: 1rem;
@@ -170,9 +208,18 @@ main h4 {
     border-radius: 50%;
 }
 
+.container-photo{
+    display: flex;
+    justify-content: center;
+}
+
+.photo-form {
+    border-radius: 50%;
+}
+
 .button-danger {
     display: inline-block;
-    background-color:rgb(247, 49, 49);
+    background-color: rgb(247, 49, 49);
     color: #fff;
     padding: .5rem .4rem;
     border-radius: 5px;
@@ -181,4 +228,10 @@ main h4 {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
+}
+
+.error{
+    color: rgb(247, 49, 49);
+    font-weight: 500;
+    display: none;
 }

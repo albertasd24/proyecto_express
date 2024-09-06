@@ -13,6 +13,9 @@
   <body>
     <div class="container-form">
         <form class="form" action="/update/usuarios/<%= user._id %>" method="post">
+          <div class="container-photo">
+            <img class="photo-form" width="100" src="https://ui-avatars.com/api/?name=<%= user.name %>+<%= user.lastname %>?background=random" alt="" />
+          </div>
           <h2 class="title"><%= user.name %> <%= user.lastname %></h2>
           <label for="name">Nombres:</label>
           <input type="text" id="name" name="name" value="<%= user.name %>" />
@@ -23,9 +26,11 @@
           <label for="">Rol:</label>
           <select name="role" id="">
             <% if (user.role == "administrador") { %>
-                <option value="administrador">Administrador</option>
-            <% } else { %>
+                <option value="administrador" selected>Administrador</option>
                 <option value="usuario">Usuario</option>
+                <% } else { %>
+                  <option value="usuario" selected>Usuario</option>
+                  <option value="administrador">Administrador</option>
             <% } %>
           </select>
           <div class="form-actions">
