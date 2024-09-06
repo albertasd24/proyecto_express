@@ -1,6 +1,8 @@
 
 
 new DataTable('#table', {
+    pageLength: 5, // Define la cantidad predeterminada de registros por página
+    lengthMenu: [5, 10, 25, 50, 100], // Opciones disponibles para el usuario
     language: {
         search: 'Buscar',
         info: 'Página _PAGE_ de _PAGES_',
