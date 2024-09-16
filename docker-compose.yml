@@ -4,6 +4,9 @@ services:
   mongo:
     image: mongo:latest  # Usa la última imagen oficial de MongoDB
     container_name: containerMongoDB  # Nombre del contenedor
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root  # Usuario raíz
+      - MONGO_INITDB_ROOT_PASSWORD=12345  # Contraseña del usuario raíz
     ports:
       - "27018:27017"  # Mapea el puerto 27017 del contenedor al puerto 27017 de tu máquina local
     volumes:
