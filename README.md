@@ -49,3 +49,15 @@ npm run dev
 - **MongoDB**: Base de datos NoSQL orientada a documentos, ideal para manejar grandes volúmenes de datos no estructurados.
 
 - **Docker**: Plataforma que permite crear, desplegar y gestionar aplicaciones dentro de contenedores, asegurando la portabilidad y consistencia del entorno de ejecución.
+
+### Base de Datos
+La base de datos que se crea con un usuario y una clave por eso usamos:
+```
+`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?authSource=admin`
+```
+**Archivo src/config/database.js**
+Si la base de datos es por defecto ten en cuenta el puerto 27017 (cambiar en el archivo .env) y no es necesario el usuario y la contraseña. Si decides usarlo de esta forma debes cambiar en la linea 6 por esta forma:
+```
+`mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`
+```
+
